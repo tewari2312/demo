@@ -1,5 +1,6 @@
-package com.example.demo;
+package com.example.demo.controllers;
 
+import com.example.demo.bean.ACLObject;
 import org.springframework.beans.factory.config.ConfigurableBeanFactory;
 import org.springframework.context.annotation.Scope;
 import org.springframework.http.HttpStatus;
@@ -23,6 +24,7 @@ public class ACLController {
     @ResponseBody
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public String deleteACL(@PathVariable("aclID") String aclID) throws Exception{
+        ACLObject aclObject = ACLObject.getInstance(aclID);
         return new String("ACL with ID "+aclID+" has been deleted...");
     }
 
